@@ -5,9 +5,11 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <Header/>
-      <Outlet />
-      <Footer/>
+      <Header />
+      <div className="min-h-[84vh]">
+        <Outlet />
+      </div>
+      <Footer />
     </>
   );
 };
