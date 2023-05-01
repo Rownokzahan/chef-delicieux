@@ -3,19 +3,20 @@ import ActiveLink from './ActiveLink';
 import { TbChefHat } from "react-icons/tb";
 import { GoThreeBars } from "react-icons/go";
 import { BsX } from "react-icons/bs";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
     const [openNavLink, setOpenNavLink] = useState(false);
-    // const { user, logout } = useContext(AuthContext);
-    const user = true;
+    const { user, logout } = useContext(AuthContext);
 
+    console.log(user);
     const handleLogout = () => {
-    //     logout()
-    //         .then()
-    //         .catch(error => console.log(error))
+        logout()
+            .then()
+            .catch(error => console.log(error))
     }
 
     return (
@@ -38,10 +39,10 @@ const Header = () => {
                     <>
                         <img
                             data-tooltip-id="my-tooltip"
-                            data-tooltip-content="Hello world!"
+                            data-tooltip-content={user.displayName}
                             data-tooltip-place="bottom"
                             className='rounded-full w-10 h-10'
-                            src="https://randomuser.me/api/portraits/med/men/75.jpg"
+                            src={user.photoURL}
                             alt=""
                         />
                         <Tooltip id="my-tooltip" />
@@ -52,9 +53,7 @@ const Header = () => {
                 }
                 
             </div>
-
-            
-            
+                        
         </nav>
     );
 };
