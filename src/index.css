@@ -16,7 +16,7 @@
 }
 
 .ui-container {
-    @apply mx-2 pt-24 md:mx-10
+    @apply px-2 pt-24 md:px-10 lg:px-20
 }
 
 .ui-title {

@@ -12,7 +12,6 @@ const Header = () => {
     const [openNavLink, setOpenNavLink] = useState(false);
     const { user, logout } = useContext(AuthContext);
 
-    console.log(user);
     const handleLogout = () => {
         logout()
             .then()
@@ -20,7 +19,7 @@ const Header = () => {
     }
 
     return (
-        <nav className='px-2 md:px-10 py-8 md:flex justify-between bg-ui-cream relative text-gray-800'>
+        <nav className='px-2 md:px-10 lg:px-20 py-8 md:flex justify-between bg-ui-cream relative text-gray-800'>
             <Link className='font-bold text-2xl text-ui-red flex gap-1 items-center' to='/'>
                 <TbChefHat />
                 Chef&apos;s Délicieux
