@@ -1,7 +1,11 @@
+import { useLoaderData } from 'react-router-dom';
 import banner from '../assets/images/banner1.avif'
 import ChefCard from '../components/cards/ChefCard';
 
 const Home = () => {
+
+    const chefs = useLoaderData();
+
     return (
         <>
             <div className="h-[89vh] bg-no-repeat bg-cover flex items-center" style={{ backgroundImage: `url(${banner})` }}>
@@ -17,14 +21,7 @@ const Home = () => {
                 <h3 className='text-center text-3xl font-semibold uppercase mb-1'>Our Chefs</h3>
                 <div className='border-b-2 border-ui-red w-20 mx-auto mb-16'></div>
                 <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
-                    <ChefCard />
+                    {chefs.map(chef => <ChefCard key={chef.id} chef={chef} />)}                   
                 </div>
             </div>
 
