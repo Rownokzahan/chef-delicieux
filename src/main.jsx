@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import Chef from './pages/Chef.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs`)
+      },
+
+      {
+        path: "/chef/:id",
+        element: <Chef />,
+        loader: ({params}) => fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs/${params.id}`)
       },
 
       {

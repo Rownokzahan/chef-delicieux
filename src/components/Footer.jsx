@@ -5,7 +5,7 @@ import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
     return (
-        <footer className="px-2 py-8 flex flex-col gap-6 md:items-center justify-between md:flex-row md:px-10 bg-black text-neutral-300">
+        <footer className="px-2 mt-24 md:px-10 lg:px-20 py-8 flex flex-col gap-6 md:items-center justify-between md:flex-row bg-black text-neutral-300">
             <a className='font-bold text-xl flex gap-1 items-center text-white' href='/'>
                 <TbChefHat /> Chef&apos;s Délicieux
             </a>

@@ -6,8 +6,6 @@ const ChefCard = ({ chef }) => {
 
     const { id, name, likes, recipes, years_experience, images } = chef;
 
-    console.log(chef);
-
     return (
         <div className="shadow-md p-4 rounded-lg ">
 
@@ -31,7 +29,7 @@ const ChefCard = ({ chef }) => {
                 </div>
             </div>
 
-            <div className="text-center">
+            <div className="text-center mb-2">
                 <Link to={`/chef/${id}`} className="shadow-md hover:bg-ui-red hover:text-white text-ui-red border border-ui-red transform duration-500 text-center px-6 py-2 rounded-3xl font-semibold">View Recipes</Link>
             </div>
         </div>
