@@ -1,16 +1,26 @@
 import { useLoaderData } from "react-router-dom";
 import banner from '../assets/images/banner2.avif'
+import { useEffect, useState } from "react";
+import RecipeCard from "../components/cards/RecipeCard";
 
 
 const Chef = () => {
 
-    const { id, name, bio, likes, recipes, years_experience, images } = useLoaderData();
+    const { id: chef_id, name, bio, likes, recipes: total_recipes, years_experience, images } = useLoaderData();
+    const [recipes, setRecipes] = useState([])
 
-    console.log(id);
+    useEffect(() => {
+        fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs/${chef_id}/recipes`)
+            .then(res => res.json())
+            .then(data => setRecipes(data))
+            .catch(error => {
+                console.log(error);
+            })
+    }, [chef_id])
 
     return (
         <>
-            <div className="px-2 py-20 md:px-10 lg:px-20 bg-no-repeat bg-gray-500 bg-cover bg-blend-overlay bg-fixed" style={{ backgroundImage:`url(${banner})`}}>
+            <div className="px-2 py-20 md:px-10 lg:px-20 bg-no-repeat bg-gray-500 bg-cover bg-blend-overlay bg-fixed" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center bg-black bg-opacity-90 rounded-lg">
                     <img src={images.large} className="w-full rounded-lg xl:rounded-r-none" alt="" />
                     <div className="text-white p-5">
@@ -20,12 +30,15 @@ const Chef = () => {
                         <div className="text-lg space-y-4">
                             <p>Years Of Experience : {years_experience} Years</p>
                             <p>Total Likes : {likes}</p>
-                            <p>Total Recipes : {recipes}</p>
+                            <p>Total Recipes : {total_recipes}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div className="ui-container grid gap-8">
+                {recipes.map(recipe => <RecipeCard key={recipe.recipe_id} recipe={recipe}/>)}
+            </div>
 
         </>
     );
