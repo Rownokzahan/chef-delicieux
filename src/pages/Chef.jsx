@@ -1,11 +1,17 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import banner from '../assets/images/banner2.avif'
 import RecipeCard from "../components/cards/RecipeCard";
+import Spinner from "../components/Spinner";
 
 const Chef = () => {
+    const navigation = useNavigation();
 
-    const {chef, recipes} = useLoaderData()
+    const { chef, recipes } = useLoaderData()
     const { name, bio, likes, recipes: total_recipes, years_experience, images } = chef
+
+    if (navigation.state === 'loading') {
+        return <Spinner />
+    }
 
     return (
         <>
@@ -26,7 +32,7 @@ const Chef = () => {
             </div>
 
             <div className="ui-container grid gap-8">
-                {recipes.map(recipe => <RecipeCard key={recipe.recipe_id} recipe={recipe}/>)}
+                {recipes.map(recipe => <RecipeCard key={recipe.recipe_id} recipe={recipe} />)}
             </div>
 
         </>
