@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import OtherLogins from "../components/OtherLogins";
 
 const Register = () => {
     const { register, setUserInfo } = useContext(AuthContext);
@@ -97,6 +98,8 @@ const Register = () => {
                     <Link to="/login" className="ml-1 font-medium text-ui-red underline-offset-4 hover:underline" >Log in</Link>
                 </p>
             </form>
+
+            <OtherLogins/>
         </div>
     );
 };

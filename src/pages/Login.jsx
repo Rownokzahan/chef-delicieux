@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import OtherLogins from "../components/OtherLogins";
 
 const Login = () => {
 
@@ -55,6 +56,8 @@ const Login = () => {
                     <Link to="/register" className="ml-1 font-medium text-ui-red underline-offset-4 hover:underline" >Create One</Link>
                 </p>
             </form>
+
+            <OtherLogins/>
         </div>
     );
 };
