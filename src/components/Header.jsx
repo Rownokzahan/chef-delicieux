@@ -30,9 +30,7 @@ const Header = () => {
             <div className={`menu ${openNavLink ? 'flex' : 'hidden'}`}>
                 <BsX onClick={() => setOpenNavLink(false)} className="w-6 h-6 absolute right-2 top-2 md:hidden" />
                 <ActiveLink to={'/'}>Home</ActiveLink>
-                <ActiveLink to={'/chef'}>Chef</ActiveLink>
                 <ActiveLink to={'/blog'}>Blog</ActiveLink>
-
                 {user
                     ?
                     <>

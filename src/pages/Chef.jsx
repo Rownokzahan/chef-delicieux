@@ -1,28 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 import banner from '../assets/images/banner2.avif'
-import { useEffect, useState } from "react";
 import RecipeCard from "../components/cards/RecipeCard";
-
 
 const Chef = () => {
 
-    const { id: chef_id, name, bio, likes, recipes: total_recipes, years_experience, images } = useLoaderData();
-    const [recipes, setRecipes] = useState([])
-
-    useEffect(() => {
-        fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs/${chef_id}/recipes`)
-            .then(res => res.json())
-            .then(data => setRecipes(data))
-            .catch(error => {
-                console.log(error);
-            })
-    }, [chef_id])
+    const {chef, recipes} = useLoaderData()
+    const { name, bio, likes, recipes: total_recipes, years_experience, images } = chef
 
     return (
         <>
             <div className="px-2 py-20 md:px-10 lg:px-20 bg-no-repeat bg-gray-500 bg-cover bg-blend-overlay bg-fixed" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center bg-black bg-opacity-90 rounded-lg">
-                    <img src={images.large} className="w-full rounded-lg xl:rounded-r-none" alt="" />
+                    <img src={images?.large} className="w-full rounded-lg xl:rounded-r-none" alt="" />
                     <div className="text-white p-5">
                         <h1 className="text-5xl mb-6 text-white">{name}</h1>
                         <p className="mb-6 text-lg">{bio}</p>

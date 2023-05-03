@@ -8,11 +8,14 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Chef from './pages/Chef.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import { ChefAndRecipesLoader } from './loaders/ChefAndRecipesLoader.js';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -23,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/chef/:id",
         element: <Chef />,
-        loader: ({params}) => fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs/${params.id}`)
+        loader: ({ params }) => ChefAndRecipesLoader(params.id)
       },
 
       {
