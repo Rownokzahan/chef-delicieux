@@ -3,11 +3,17 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { Tooltip } from "react-tooltip";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { toast } from "react-toastify";
 
 const RecipeCard = ({ recipe }) => {
 
     const { recipe_name, image, ingredients, cooking_method, rating } = recipe
     const [favourite, setFavourite] = useState(false)
+
+    const handleAddToFavourite = () => {
+        setFavourite(true)
+        toast("❤️‍🔥 Added To Favourites !");
+    }
 
     return (
         <div className="rounded-lg lg:grid grid-cols-4 bg-black shadow shadow-gray-100 relative">
@@ -31,7 +37,7 @@ const RecipeCard = ({ recipe }) => {
             </div>
 
             <button
-                onClick={() => setFavourite(true)}
+                onClick={handleAddToFavourite}
                 className="absolute top-0 right-0 text-ui-red text-3xl p-1"
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content= "Add Favourite"
