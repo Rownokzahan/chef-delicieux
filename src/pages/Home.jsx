@@ -1,10 +1,16 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import banner from '../assets/images/banner1.avif'
 import ChefCard from '../components/cards/ChefCard';
+import Spinner from '../components/Spinner';
 
 const Home = () => {
 
+    const navigation = useNavigation();
     const chefs = useLoaderData();
+
+    if (navigation.state === 'loading') {
+        return <Spinner/>
+    }
 
     return (
         <>

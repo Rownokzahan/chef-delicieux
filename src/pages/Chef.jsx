@@ -4,10 +4,10 @@ import RecipeCard from "../components/cards/RecipeCard";
 import Spinner from "../components/Spinner";
 
 const Chef = () => {
-    const navigation = useNavigation();
-
+    
     const { chef, recipes } = useLoaderData()
     const { name, bio, likes, recipes: total_recipes, years_experience, images } = chef
+    const navigation = useNavigation();
 
     if (navigation.state === 'loading') {
         return <Spinner />
