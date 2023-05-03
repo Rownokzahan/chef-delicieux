@@ -7,6 +7,7 @@ import { ChefAndRecipesLoader } from "../loaders/ChefAndRecipesLoader";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../pages/Blog";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
                 path: "/chef/:id",
                 element: <PrivateRoute><Chef /></PrivateRoute>,
                 loader: ({ params }) => ChefAndRecipesLoader(params.id)
+            },
+
+            {
+                path: "/blog",
+                element: <Blog />
             },
 
             {
