@@ -1,5 +1,5 @@
 
-# My Cuisine Recipes
+# Chef's Délicieux
 
 Chef's Délicieux is a website that showcases recipes from various chefs specializing in a french cuisine.
 
