@@ -38,13 +38,13 @@ const RecipeCard = ({ recipe }) => {
 
             <button
                 onClick={handleAddToFavourite}
-                className="absolute top-0 right-0 text-ui-red text-3xl p-1"
+                className="absolute top-0 right-0 text-ui-red p-1"
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content= "Add Favourite"
                 data-tooltip-place="bottom"
                 disabled={favourite}
             >
-                {favourite ? <AiFillHeart /> : <AiOutlineHeart />}
+                {favourite ? <AiFillHeart className="text-3xl" /> : <AiOutlineHeart className="text-3xl" />}
                 <Tooltip className="text-sm rounded" id="my-tooltip" />
             </button>
         </div>
