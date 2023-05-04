@@ -1,5 +1,7 @@
 import banner from "../assets/images/banner3.avif";
 import { FaDownload } from "react-icons/fa";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PdfFile from "../components/PdfFile";
 
 const Blog = () => {
     return (
@@ -40,7 +42,9 @@ const Blog = () => {
 
                 <div className="text-white absolute top-2 right-2 flex gap-3">
                     <h2 className="text-lg font-bold">Download this blog as PDF</h2>
-                    <button className="border bg-white shadow rounded-md border-ui-red p-2"><FaDownload className="text-ui-red" /></button>
+                    <PDFDownloadLink document={<PdfFile />} filename="chef-delicieux">
+                        <button className="border bg-white shadow rounded-md border-ui-red p-2"><FaDownload className="text-ui-red" /></button>
+                    </PDFDownloadLink>
                 </div>
             </div>
         </div>
