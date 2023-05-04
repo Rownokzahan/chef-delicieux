@@ -8,7 +8,7 @@ const LatestRecipeCard = ({ recipe }) => {
 
     return (
         <Link className='relative group border'>
-            <img className="h-96 w-fit" src={image} alt="" />
+            <img className="h-full w-fit" src={image} alt="" />
             <div className='absolute inset-0 flex justify-center items-center text-white bg-black bg-opacity-70 opacity-0 duration-300 group-hover:opacity-100 transition-opacity'>
                 <div>
                     <h3 className="text-2xl font-semibold">{recipe_name}</h3>
