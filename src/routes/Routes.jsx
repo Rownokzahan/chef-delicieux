@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../pages/Blog";
+import ChefsAndLatestRecipesLoader from "../loaders/ChefsAndLatestRecipesLoader";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch(`https://chef-delicieux-server-rownokzahan.vercel.app/chefs`)
+                loader: ChefsAndLatestRecipesLoader
             },
 
             {

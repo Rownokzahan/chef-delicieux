@@ -1,7 +1,6 @@
-import { BsTwitter } from "react-icons/bs";
+import { BsEnvelope, BsTelephone } from "react-icons/bs";
 import { TbChefHat } from "react-icons/tb";
-import { FaFacebookF } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
+import { RiMessengerLine } from "react-icons/ri";
 
 const Footer = () => {
     return (
@@ -25,11 +24,11 @@ const Footer = () => {
             <div className=" py-8 flex flex-col gap-6 md:items-center justify-between md:flex-row bg-black text-neutral-300">
                 <p className="font-light text-sm">Privacy Policy | Terms & Conditions</p>
                 <p className="font-light text-sm"> © 2023 Chef&apos;s Délicieux, All Rights Reserved</p>
-                <div className="flex gap-2 items-center">
-                    <span className="uppercase mr-2"> Follow us </span>
-                    <BsTwitter className="hover:text-ui-red" />
-                    <FaFacebookF className="hover:text-ui-red" />
-                    <AiFillInstagram className="hover:text-ui-red" />
+                <div className="flex gap-3 items-center text-[19px]">
+                    <span className="uppercase mr-2 text-base"> Contact us </span>
+                    <RiMessengerLine className="hover:text-ui-red" />
+                    <BsEnvelope className="hover:text-ui-red" />
+                    <BsTelephone className="hover:text-ui-red" />
                 </div>
             </div>
         </footer>
