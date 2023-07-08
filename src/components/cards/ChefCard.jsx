@@ -12,7 +12,7 @@ const ChefCard = ({ chef }) => {
 
             <div className="h-[200px]">
                 <LazyLoad height={200}>
-                    <img className="w-full h-full rounded-t-lg" src={images.large} alt="" />
+                    <img className="w-full h-full rounded-t-lg object-cover" src={images.large} alt="" />
                 </LazyLoad>
             </div>
 
@@ -26,12 +26,12 @@ const ChefCard = ({ chef }) => {
                 </div>
                 <p className="mt-3 italic">{years_experience} Years of Cooking Experience</p>
 
-                <div className="flex justify-between my-4">
+                <div className="flex justify-between mt-4 mb-2">
                     <p className="flex gap-2 items-center">
                         <TbSoup className="mb-[2px] text-xl" />
                         {recipes} Recipes
                     </p>
-                    <Link to={`/chef/${id}`} className="shadow-md hover:bg-ui-red hover:text-white text-ui-red border border-ui-red transform duration-500 text-center px-6 py-2 rounded-3xl font-semibold">View Recipes</Link>
+                    <Link to={`/chef/${id}`} className="shadow-md hover:bg-ui-red hover:text-white text-ui-red border border-ui-red transform duration-500 text-center whitespace-nowrap px-2 py-1 rounded-3xl font-semibold">View Recipes</Link>
                 </div>
             </div>
 
